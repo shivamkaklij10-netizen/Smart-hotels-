@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body class="center">
+    <div class="formbox"><a class="logo" href="/">SMART<span>HOTEL</span></a>
+        <h2>Create Account</h2>
+        {% for m in get_flashed_messages() %}<div class="alert">{{m}}</div>{% endfor %}
+        <form method="post"><label>Full Name</label><input name="name" required><label>Email</label><input type="email"
+                name="email" required><label>Password</label><input type="password" name="password" minlength="6"
+                required><button class="btn full">Register</button></form>
+        <p>Already registered? <a href="/login">Login</a></p>
+    </div>
+</body>
+
+</html>

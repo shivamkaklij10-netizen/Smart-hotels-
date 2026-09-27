@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Smart Hotel</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+    <nav><a class="logo" href="/">SMART<span>HOTEL</span></a>
+        <div class="nav">
+            <a href="/">Home</a><a href="/rooms">Rooms</a><a href="/menu">Menu</a><a href="/party">Party Hall</a>
+            {% if session.get('user_id') %}<a href="/dashboard">Dashboard</a><a href="/logout">Logout</a>{% else %}<a
+                href="/login">Login</a><a class="navbtn" href="/register">Register</a>{% endif %}
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="heroText">
+            <p class="gold">WELCOME TO SMART HOTEL</p>
+            <h1>Luxury Stay.<br><span>Smart Experience.</span></h1>
+            <p>Book rooms, reserve tables, order delicious food and plan events from one modern platform.</p>
+            <div><a class="btn" href="/rooms">Book a Room</a><a class="btn outline" href="/booking">Reserve Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <p class="gold">OUR SERVICES</p>
+        <h2>Everything You Need</h2>
+        <div class="grid">
+            <a class="card" href="/rooms"><b>🛏️</b>
+                <h3>Luxury Rooms</h3>
+                <p>Comfortable rooms with modern facilities.</p>
+            </a>
+            <a class="card" href="/menu"><b>🍽️</b>
+                <h3>Food Ordering</h3>
+                <p>Order your favourite meals online.</p>
+            </a>
+            <a class="card" href="/booking"><b>🪑</b>
+                <h3>Table Reservation</h3>
+                <p>Reserve your restaurant table.</p>
+            </a>
+            <a class="card" href="/party"><b>🎉</b>
+                <h3>Party Hall</h3>
+                <p>Book halls for special events.</p>
+            </a>
+        </div>
+    </section>
+    <section class="about">
+        <div>
+            <p class="gold">ABOUT US</p>
+            <h2>Hospitality Made Simple</h2>
+            <p>Smart Hotel brings rooms, food, tables and events together in one easy website.</p>
+        </div>
+        <div class="stats">
+            <div><strong>24/7</strong><small>Service</small></div>
+            <div><strong>50+</strong><small>Rooms</small></div>
+            <div><strong>100%</strong><small>Comfort</small></div>
+        </div>
+    </section>
+    <footer>© 2026 Smart Hotel Management System</footer>
+</body>
+
+</html>

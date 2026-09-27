@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+    <nav><a class="logo" href="/">SMART<span>HOTEL</span></a>
+        <div class="nav"><a href="/">Home</a><a href="/menu">Menu</a><a href="/booking">Booking</a><a
+                href="/logout">Logout</a></div>
+    </nav>
+    <section class="section top">
+        <p class="gold">USER DASHBOARD</p>
+        <h2>Welcome, {{session.get('name')}}</h2>{% for m in get_flashed_messages() %}<div class="alert">{{m}}</div>{%
+        endfor %}
+        <h3>Your Bookings</h3>
+        <div class="tablewrap">
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>{% for x in bookings %}<tr>
+                    <td>{{x.type}}</td>
+                    <td>{{x.date}}</td>
+                    <td>{{x.time}}</td>
+                    <td>{{x.status}}</td>
+                </tr>{% else %}<tr>
+                    <td colspan="4">No bookings.</td>
+                </tr>{% endfor %}
+            </table>
+        </div>
+        <h3>Your Orders</h3>
+        <div class="tablewrap">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>{% for x in orders %}<tr>
+                    <td>{{x.item}}</td>
+                    <td>{{x.quantity}}</td>
+                    <td>₹{{x.total}}</td>
+                    <td>{{x.status}}</td>
+                </tr>{% else %}<tr>
+                    <td colspan="4">No orders.</td>
+                </tr>{% endfor %}
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

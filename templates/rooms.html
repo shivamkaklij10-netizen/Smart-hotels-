@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+    <nav><a class="logo" href="/">SMART<span>HOTEL</span></a>
+        <div class="nav"><a href="/">Home</a><a href="/menu">Menu</a><a href="/booking">Booking</a><a
+                href="/login">Login</a></div>
+    </nav>
+    <section class="section top">
+        <p class="gold">ACCOMMODATION</p>
+        <h2>Choose Your Room</h2>
+        <div class="grid">
+            {% for name,price,desc in [('Deluxe Room','₹3,999','King bed • Wi-Fi • Breakfast'),('Premium
+            Suite','₹6,999','Suite • Balcony • Breakfast'),('Royal Suite','₹9,999','Luxury suite • Lounge • Dinner')] %}
+            <div class="card room">
+                <div class="roompic">{{name.upper()}}</div>
+                <h3>{{name}}</h3>
+                <p>{{desc}}</p><strong>{{price}} / night</strong><a class="btn" href="/booking">Book Now</a>
+            </div>{% endfor %}
+        </div>
+    </section>
+</body>
+
+</html>

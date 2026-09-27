@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body class="center">
+    <div class="formbox"><a class="logo" href="/">SMART<span>HOTEL</span></a>
+        <h2>Welcome Back</h2>
+        {% for m in get_flashed_messages() %}<div class="alert">{{m}}</div>{% endfor %}
+        <form method="post"><label>Email</label><input type="email" name="email" required><label>Password</label><input
+                type="password" name="password" required><button class="btn full">Login</button></form>
+        <p>New user? <a href="/register">Create account</a></p><small>Admin: admin@smarthotel.com / admin123</small>
+    </div>
+</body>
+
+</html>
